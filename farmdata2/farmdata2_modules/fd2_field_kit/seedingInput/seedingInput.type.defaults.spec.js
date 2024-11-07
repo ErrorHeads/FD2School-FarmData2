@@ -10,7 +10,11 @@ describe('Test the default contents of the "Seeding Type" section of the Seeding
     })
 
     it('Check that there is an element for Tray and Direct and that they are enabled', () => {
-
+        cy.get("[data-cy=tray-seedings]")
+            .should("be.enabled")
+        cy.get("[data-cy=direct-seedings]")
+            .should("be.enabled")
+        
     })
 
     it('Check that neither the Tray or Direct elements are selected, and that the message indicating one but be selected is visible', () => {
