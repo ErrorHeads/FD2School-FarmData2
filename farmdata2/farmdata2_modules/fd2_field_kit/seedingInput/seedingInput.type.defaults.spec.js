@@ -29,6 +29,23 @@ describe('Test the default contents of the "Seeding Type" section of the Seeding
     })
 
     it('Check that neither form elements for the Tray and Direct seedings are visible', () => {
+        // Check Tray seeding elements are not visible
+        cy.get('[data-cy=tray-area-selection]')
+            .should('not.be.visible')
+        cy.get('[data-cy=num-cell-input]')
+            .should('not.be.visible')
+        cy.get('[data-cy=num-tray-input]')
+            .should('not.be.visible')
+        cy.get('[data-cy=num-seed-input]')
+            .should('not.be.visible')
+
+        // Check Direct seeding elements are not visible
+        cy.get('[data-cy=direct-area-selection]')
+            .should('not.be.visible')
+        cy.get('[data-cy=num-rowbed-input]')
+            .should('not.be.visible')
+        cy.get('[data-cy=num-feet-input]')
+            .should('not.be.visible')
 
     })
 
