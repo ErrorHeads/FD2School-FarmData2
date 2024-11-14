@@ -20,10 +20,10 @@ describe('Test the default contents of the "Seeding Type" section of the Seeding
     it('Check that neither the Tray or Direct elements are selected, and that the message indicating one but be selected is visible', () => {
         cy.get("[data-cy=tray-seedings]")
             .should("not.be.checked")
-    cy.get("[data-cy=direct-seedings]")
+        cy.get("[data-cy=direct-seedings]")
             .should("not.be.checked")
         
-    cy.get('div')
+        cy.get('div')
         .contains('Please Select Tray Seeding or Direct Seeding')
         .should('be.visible')
     })
