@@ -21,8 +21,24 @@ describe('Test the columns of the seeding report table by seeding type', () => {
         cy.waitForPage()
     })
 
-    it("Fox: 1st test (Replace Later)", () => {
+    it("Check that the proper columns are displayed when 'All' is selected", () => {
+        cy.get('[data-cy=seeding-type-dropdown] > [data-cy=dropdown-input]')
+            .should('have.value','All')
+        
+        cy.get('[data-cy=selectAll-checkbox]')
+            .should('be.visible')
 
+        // h0 - h13 relate to tableColumns[1] - tableColumns[14] in seedingReport.html
+        for(let h = 0; h < 14; h++){
+            if (h < 4 || h > 9){
+                cy.get('[data-cy=h' + h)
+                    .should('be.visible')
+            } else {
+                cy.get('[data-cy=h' + h)
+                    .should('not.exist')
+            }
+            
+        }
     })
 
     it("Niloy: 2nd test (Replace Later)", () => {
