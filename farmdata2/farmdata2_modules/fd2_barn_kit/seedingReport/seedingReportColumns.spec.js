@@ -29,7 +29,65 @@ describe('Test the columns of the seeding report table by seeding type', () => {
 
     })
 
-    it("Ifrad: 3rd test (Replace Later)", () => {
+    it('should display correct columns when Tray Seedings is selected', () => {
 
-    })
-})
+
+        cy.get('[data-cy="seeding-type-dropdown"]')
+          .should('exist')
+          .and('be.visible');
+    
+        
+        cy.get('[data-cy=seeding-type-dropdown] > [data-cy=dropdown-input]')
+         .select('Tray Seedings')
+
+        cy.get('[data-cy=selectAll-checkbox]').should('be.visible') 
+        cy.get('[data-cy=edit-header]').should('exist')
+
+        
+        
+        
+    
+        
+        
+    
+        
+        
+            
+            cy.get('[data-cy="report-table"]').within(() => {
+              const expectedColumns = [
+                'Date',
+                'Crop',
+                'Area',
+                'Seeds',
+                'Trays',
+                'Cells/Tray',
+                'Workers',
+                'Hours',
+                'Varieties',
+                'Comments',
+                'User',
+              ];
+        
+              expectedColumns.forEach((columnName) => {
+                cy.get('th').contains(columnName).should('be.visible');
+              });
+            });
+          });
+        });
+
+
+
+
+
+  
+
+       
+
+
+
+  
+  
+
+
+
+
